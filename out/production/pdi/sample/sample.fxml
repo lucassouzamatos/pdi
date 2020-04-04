@@ -98,9 +98,33 @@
                             </children></AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane animated="false" disable="true" text="Adição / Subtração">
+                <TitledPane animated="false" text="Adição / Subtração">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="288.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Imagem 1" />
+                              <Slider fx:id="addSliderOne" min="1.0" prefHeight="38.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" />
+                              <Label text="Imagem 2">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Slider fx:id="addSliderTwo" min="1.0" prefHeight="38.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" />
+                              <Button mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="204.0" text="Adição">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#subtract" prefHeight="26.0" prefWidth="204.0" text="Subtração">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
                     </content>
                 </TitledPane>
                 <TitledPane animated="false" text="Ruído">

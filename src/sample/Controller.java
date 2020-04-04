@@ -10,12 +10,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-import util.AlertEmitter;
-import util.ImageHandler;
+import util.*;
 
 import javafx.scene.control.Alert;
-import util.Message;
-import util.Pixel;
 
 public class Controller {
     @FXML ImageView imageViewOne;
@@ -31,6 +28,9 @@ public class Controller {
     @FXML TextField fieldBlue;
 
     @FXML Slider thresholdSlider;
+
+    @FXML Slider addSliderOne;
+    @FXML Slider addSliderTwo;
 
     private Image imageOne;
     private Image imageTwo;
@@ -71,6 +71,17 @@ public class Controller {
     @FXML
     public void noiseCross() {
         Filter.apply(NoiseFilter.RemoveNoise(imageOne, Pixel.NEIGHTBOUR_CROSS), imageViewThree);
+    }
+
+    @FXML
+    public void add() {
+        Filter.apply(AddFilter.Add(imageOne, imageTwo, addSliderOne.getValue(), addSliderTwo.getValue()), imageViewThree);
+    }
+
+
+    @FXML
+    public void subtract() {
+        Filter.apply(SubtractFilter.Subtract(imageOne, imageTwo), imageViewThree);
     }
 
     @FXML
