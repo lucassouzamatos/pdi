@@ -2,17 +2,12 @@ package sample;
 
 import filter.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.*;
+import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import util.*;
-
-import javafx.scene.control.Alert;
 
 public class Controller {
     @FXML ImageView imageViewOne;
@@ -31,6 +26,9 @@ public class Controller {
 
     @FXML Slider addSliderOne;
     @FXML Slider addSliderTwo;
+
+    @FXML CheckBox marker;
+    @FXML ColorPicker colorMarker;
 
     private Image imageOne;
     private Image imageTwo;
@@ -78,6 +76,33 @@ public class Controller {
         Filter.apply(AddFilter.Add(imageOne, imageTwo, addSliderOne.getValue(), addSliderTwo.getValue()), imageViewThree);
     }
 
+
+    private Drag drag = new Drag();
+
+    @FXML
+    public void clickImage(MouseEvent mouseEvent) {
+        ImageView imageView = (ImageView) mouseEvent.getTarget();
+
+        if (imageView.getImage() != null) {
+            Click click = new Click((int) mouseEvent.getX(), (int) mouseEvent.getY());
+            this.drag.setStartPress(click);
+        }
+    }
+
+
+    @FXML
+    public void releaseImage(MouseEvent mouseEvent) {
+        ImageView imageView = (ImageView) mouseEvent.getTarget();
+
+        if (imageView.getImage() != null) {
+            Click click = new Click((int) mouseEvent.getX(), (int) mouseEvent.getY());
+            this.drag.setFinalPress(click);
+
+            if (marker.isSelected()) {
+                ImageMarker.Mark(this.drag, imageView, 5, colorMarker.getValue());
+            }
+        }
+    }
 
     @FXML
     public void subtract() {

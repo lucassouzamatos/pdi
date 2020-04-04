@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
@@ -219,6 +221,16 @@
                                 <Insets left="50.0" />
                             </HBox.margin>
                         </Label>
+                  <CheckBox fx:id="marker" mnemonicParsing="false" text="Selecionar quadrado">
+                     <HBox.margin>
+                        <Insets left="20.0" right="10.0" top="30.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <ColorPicker fx:id="colorMarker" prefHeight="26.0" prefWidth="139.0">
+                     <HBox.margin>
+                        <Insets top="25.0" />
+                     </HBox.margin>
+                  </ColorPicker>
                     </children>
                 </HBox>
             </children>
@@ -236,11 +248,11 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></Button>
-                        <ScrollPane prefHeight="1000.0" prefWidth="244.0">
+                        <ScrollPane onMouseClicked="#clickImage" prefHeight="1000.0" prefWidth="244.0">
                             <content>
                                 <AnchorPane prefHeight="201.0" prefWidth="126.0">
                                     <children>
-                                        <ImageView id="imageViewOne" fx:id="imageViewOne" fitHeight="219.0" fitWidth="217.0" onMouseMoved="#mouseHover" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <ImageView id="imageViewOne" fx:id="imageViewOne" onMouseMoved="#mouseHover" onMousePressed="#clickImage" onMouseReleased="#releaseImage" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -260,7 +272,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                                     <children>
-                                        <ImageView id="imageViewTwo" fx:id="imageViewTwo" fitHeight="219.0" fitWidth="225.0" onMouseMoved="#mouseHover" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <ImageView id="imageViewTwo" fx:id="imageViewTwo" fitHeight="219.0" fitWidth="225.0" onMouseMoved="#mouseHover" onMousePressed="#clickImage" onMouseReleased="#releaseImage" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -276,7 +288,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                                     <children>
-                                        <ImageView id="imageViewThree" fx:id="imageViewThree" fitHeight="219.0" fitWidth="225.0" onMouseMoved="#mouseHover" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <ImageView id="imageViewThree" fx:id="imageViewThree" fitHeight="219.0" fitWidth="225.0" onMouseMoved="#mouseHover" onMousePressed="#clickImage" onMouseReleased="#releaseImage" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                     </children>
                                 </AnchorPane>
                             </content>
