@@ -177,4 +177,14 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void equalize() {
+        Filter.apply(HistogramWriter.equalize(imageOne, imageViewThree, false), imageViewThree);
+    }
+
+    @FXML
+    public void equalizeValid() {
+        Filter.apply(HistogramWriter.equalize(imageOne, imageViewThree, true), imageViewThree);
+    }
 }

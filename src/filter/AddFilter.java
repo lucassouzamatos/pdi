@@ -10,8 +10,6 @@ import util.ImageReader;
 public class AddFilter {
     public static Image Add(Image imageOne, Image imageTwo, double weightOne, double weightTwo) {
         try {
-            System.out.println(weightOne);
-            System.out.println(weightTwo);
             int wSmaller = ImageReader.getSmallerWidth(imageOne, imageTwo);
             int hSmaller = ImageReader.getSmallerHeight(imageOne, imageTwo);
 

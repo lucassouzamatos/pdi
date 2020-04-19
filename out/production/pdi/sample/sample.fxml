@@ -156,9 +156,25 @@
                   </AnchorPane>
                     </content>
                 </TitledPane>
-                <TitledPane animated="false" disable="true" text="Equalização de Histogram">
+                <TitledPane animated="false" text="Equalização de Histogram">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#equalize" prefHeight="26.0" prefWidth="203.0" text="Equalização 1">
+                                 <VBox.margin>
+                                    <Insets left="8.0" top="15.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#equalizeValid" prefHeight="26.0" prefWidth="203.0" text="Equalização 2">
+                                 <VBox.margin>
+                                    <Insets left="8.0" top="15.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
                     </content>
                 </TitledPane>
                 <TitledPane animated="false" disable="true" text="Teste">
