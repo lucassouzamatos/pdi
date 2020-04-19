@@ -1,13 +1,20 @@
 package sample;
 
 import filter.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
+import javafx.stage.Stage;
 import util.*;
+
+import java.io.IOException;
 
 public class Controller {
     @FXML ImageView imageViewOne;
@@ -144,6 +151,29 @@ public class Controller {
             greenLabel.setText("G: " + (int)(color.getGreen()*255));
             blueLabel.setText("B: " + (int)(color.getBlue()*255));
         } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void openHistogramModal(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("histogram.fxml"));
+            Parent root = loader.load();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Histograma");
+            stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+            stage.setMaximized(true);
+            stage.show();
+
+            HistogramController controller = (HistogramController) loader.getController();
+
+            HistogramWriter.setChart(imageViewOne.getImage(), controller.imageOne);
+            HistogramWriter.setChart(imageViewTwo.getImage(), controller.imageTwo);
+            HistogramWriter.setChart(imageViewThree.getImage(), controller.imageThree);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

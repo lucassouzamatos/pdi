@@ -231,6 +231,11 @@
                         <Insets top="25.0" />
                      </HBox.margin>
                   </ColorPicker>
+                  <Button mnemonicParsing="false" onAction="#openHistogramModal" text="Abrir histograma">
+                     <HBox.margin>
+                        <Insets left="40.0" top="25.0" />
+                     </HBox.margin>
+                  </Button>
                     </children>
                 </HBox>
             </children>
