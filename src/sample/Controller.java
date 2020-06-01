@@ -30,6 +30,7 @@ public class Controller {
     @FXML TextField fieldBlue;
 
     @FXML Slider thresholdSlider;
+    @FXML Slider thresholdCanny;
 
     @FXML Slider addSliderOne;
     @FXML Slider addSliderTwo;
@@ -83,8 +84,21 @@ public class Controller {
         Filter.apply(AddFilter.Add(imageOne, imageTwo, addSliderOne.getValue(), addSliderTwo.getValue()), imageViewThree);
     }
 
-
     private Drag drag = new Drag();
+
+    @FXML
+    public void applySobel() {
+        Filter.apply(SobelFilter.Handle(imageViewOne.getImage()), imageViewThree);
+    }
+
+    @FXML
+    public void applyCanny() {
+        Filter.apply(CannyFilter.Handle(imageViewOne.getImage(), thresholdCanny), imageViewThree);
+    }
+
+    @FXML
+    public void openHistogramCameraModal() {
+    }
 
     @FXML
     public void clickImage(MouseEvent mouseEvent) {
