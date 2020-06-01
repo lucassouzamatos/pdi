@@ -97,7 +97,22 @@ public class Controller {
     }
 
     @FXML
-    public void openHistogramCameraModal() {
+    public void openHistogramCameraModal(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("video.fxml"));
+            Parent root = loader.load();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Histograma por vídeo");
+            stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+            stage.setMaximized(true);
+            stage.show();
+
+            HistogramVideoController controller = (HistogramVideoController) loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
