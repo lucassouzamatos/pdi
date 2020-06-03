@@ -1,6 +1,7 @@
 package sample;
 
 import filter.*;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import util.*;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 
 public class Controller {
@@ -88,12 +91,22 @@ public class Controller {
 
     @FXML
     public void applySobel() {
-        Filter.apply(SobelFilter.Handle(imageViewOne.getImage()), imageViewThree);
+        Filter.apply(SobelFilter.Handle(imageOne), imageViewThree);
+    }
+
+    @FXML
+    public void applyDilate() {
+        Filter.apply(DilateFilter.Handle(imageViewOne.getImage()), imageViewThree);
+    }
+
+    @FXML
+    public void applyErode() {
+        Filter.apply(ErodeFilter.Handle(imageViewOne.getImage()), imageViewThree);
     }
 
     @FXML
     public void applyCanny() {
-        Filter.apply(CannyFilter.Handle(imageViewOne.getImage(), thresholdCanny), imageViewThree);
+        Filter.apply(CannyFilter.Handle(imageOne, thresholdCanny), imageViewThree);
     }
 
     @FXML
